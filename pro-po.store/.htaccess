@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# Redirect from www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Redirect from HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# use index.php on each page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php [L]
+
+# 401 Авторизация не выполнена
+# ErrorDocument 401 https://pro-po.store/errors/401.html
+# 403 Доступ запрещен
+# ErrorDocument 403 https://pro-po.store/errors/403.html
+# 404 Страница не найдена
+ErrorDocument 404 https://%{HTTP_HOST}/application/views/404_view.php
+# 500 Внутренняя ошибка сервера
+# ErrorDocument 500 https://pro-po.store/errors/500.html

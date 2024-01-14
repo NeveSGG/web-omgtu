@@ -1,0 +1,11 @@
+product_name - Название, цвет и память - string
+product_url - ссылка на flipkart - string
+brand - бренд смартфона - string
+sale_price - стоимость - number
+mrp - рекомендованная цена - number
+discount_percentage - процент скидки - number
+number_of_ratings - количество оценок - number
+number_of_reviews - количество отзывов - number
+upc - штрихкод - string
+star_rating - рейтинг - float number
+ram - оперативная память - string
